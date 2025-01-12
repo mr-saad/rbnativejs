@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratan Bandhej</title>
+    <link rel="preconnect" href="https://zmj6x1jl.api.sanity.io" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      :root {
+        --nav-bg: rgb(18 18 18 / 0.5);
+      }
+      html {
+        color-scheme: light dark;
+      }
+
+      /* layout================= */
+      nav {
+        background: var(--nav-bg);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 5rem;
+        border-bottom: 1px solid #333;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        z-index: 2;
+
+        .menu {
+          display: none;
+          width: 1.8rem;
+          height: 1rem;
+          flex-direction: column;
+          justify-content: space-between;
+          span {
+            height: 1px;
+            background: #fff;
+          }
+        }
+
+        > strong {
+          color: #fff;
+          font-size: 1.9rem;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          list-style: none;
+
+          li {
+            color: #fff;
+            padding: 0.5rem;
+            a {
+              color: currentColor;
+              display: inline-block;
+              text-decoration: none;
+            }
+          }
+        }
+        .cart-link {
+          color: #fff;
+          text-decoration: none;
+          justify-self: end;
+          position: relative;
+
+          svg {
+            vertical-align: middle;
+          }
+
+          span {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 1000px;
+            background: #fff;
+            color: #222;
+            text-align: center;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      main {
+        min-height: 90vh;
+        margin-bottom: 3rem;
+      }
+      section:not(.hero) {
+        padding: 2rem 5rem;
+        > h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+      }
+      .hero {
+        position: relative;
+        height: 95dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: rgb(18 18 18);
+
+        &::before {
+          content: "";
+          z-index: 1;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(transparent -100%, rgb(18 18 18));
+        }
+
+        header {
+          padding-inline: 5rem;
+          z-index: 1;
+          color: #fff;
+
+          h1 {
+            font-size: 3rem;
+          }
+        }
+
+        > img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          &.skeleton {
+            visibility: hidden;
+          }
+        }
+      }
+
+      .carousel {
+        scroll-snap-type: x mandatory;
+        display: flex;
+        overflow-x: auto;
+
+        &.skeleton {
+          .slide {
+            h3 {
+              border-radius: 0.5rem;
+              color: #222;
+              background: #222;
+              -webkit-border-radius: 0.5rem;
+              -moz-border-radius: 0.5rem;
+              -ms-border-radius: 0.5rem;
+              -o-border-radius: 0.5rem;
+            }
+            p {
+              border-radius: 0.5rem;
+              color: #222;
+              background: #222;
+              -webkit-border-radius: 0.5rem;
+              -moz-border-radius: 0.5rem;
+              -ms-border-radius: 0.5rem;
+              -o-border-radius: 0.5rem;
+            }
+
+            img {
+              background: #222;
+            }
+          }
+        }
+
+        .slide {
+          scroll-snap-align: start;
+          min-width: 100%;
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          justify-content: space-between;
+          margin-inline: 2rem;
+
+          p {
+            margin-block: 1rem;
+          }
+          a {
+            color: currentColor;
+          }
+          img {
+            max-width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            -webkit-border-radius: 0.5rem;
+            -moz-border-radius: 0.5rem;
+            -ms-border-radius: 0.5rem;
+            -o-border-radius: 0.5rem;
+          }
+        }
+      }
+      .grid-three-columns {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+
+        &.skeleton {
+          .product {
+            img {
+              visibility: hidden;
+            }
+            strong {
+              background: #222;
+            }
+          }
+        }
+
+        .product {
+          position: relative;
+          overflow: hidden;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+
+          img {
+            object-fit: cover;
+            aspect-ratio: 1;
+            height: 100%;
+            width: 100%;
+          }
+
+          strong {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: end;
+            padding: 1rem;
+            color: #fff;
+            background: linear-gradient(transparent, rgb(18 18 18 / 0.9));
+          }
+        }
+      }
+      footer {
+        color: #fff;
+        padding: 2rem 5rem;
+        background: #121212;
+        border-top: 1px solid #222;
+
+        ul {
+          list-style: none;
+        }
+
+        .newsletter-input {
+          margin-top: 0.5rem;
+          width: fit-content;
+          background: #fff;
+          padding-block: 0.2rem;
+          padding-inline: 0.5rem;
+          padding-inline-end: 0.2rem;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+
+          input {
+            outline: none;
+            background: transparent;
+            border: none;
+            color: #000;
+          }
+          button {
+            border: none;
+            background: #121212;
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid;
+            padding-block: 0.3rem;
+            padding-inline: 0.5rem;
+            border-radius: 0.3rem;
+            -webkit-border-radius: 0.3rem;
+            -moz-border-radius: 0.3rem;
+            -ms-border-radius: 0.3rem;
+            -o-border-radius: 0.3rem;
+          }
+        }
+
+        > p {
+          margin-top: 2rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .grid-three-columns {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem;
+          gap: 1rem;
+          grid-template-columns: auto 1fr auto;
+
+          .menu {
+            display: flex;
+          }
+          > strong {
+            justify-self: center;
+          }
+
+          ul {
+            grid-row-start: 2;
+            grid-column: 1 / -1;
+            flex-direction: column;
+            display: none;
+            &.open {
+              display: flex;
+            }
+
+            li {
+              padding-inline: unset;
+
+              a {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .hero {
+          header {
+            padding-inline: 1rem;
+          }
+        }
+        section:not(.hero) {
+          padding: 1rem;
+
+          .carousel {
+            .slide {
+              flex-direction: column;
+              align-items: unset;
+            }
+          }
+        }
+
+        footer {
+          padding: 1rem;
+        }
+        .grid-three-columns {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+    </style>
+    <script defer src="scripts/script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menu"><span></span><span></span><span></span></div>
+      <strong><a href="index.html">Ratan Bandhej</a></strong>
+      <ul>
+        <li>Dark</li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+      <a class="cart-link" href="cart.html"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="#888"
+          stroke="#888"
+        >
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path
+            d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+          ></path>
+        </svg>
+        <span data-cart-count></span>
+      </a>
+    </nav>
+    <main>
+      <section class="hero">
+        <img class="skeleton" data-header-image width="1200" />
+        <header>
+          <h1>Ratan Bandhej</h1>
+          <p>One place for all your bandhani needs</p>
+        </header>
+      </section>
+
+      <!-- fresh crafts carousel  ====================================== -->
+      <section>
+        <h2>Fresh Crafts</h2>
+        <div class="carousel skeleton" data-carousel>
+          <div class="slide">
+            <div>
+              <h3>Some Fancy title</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam, cupiditate.
+              </p>
+            </div>
+            <img
+              decoding="async"
+              loading="lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACAD"
+              width="400"
+            />
+          </div>
+          <div class="slide">
+            <div>
+              <h3>Some Fancy title</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam, cupiditate.
+              </p>
+            </div>
+            <img
+              decoding="async"
+              loading="lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACAD"
+              width="400"
+            />
+          </div>
+          <div class="slide">
+            <div>
+              <h3>Some Fancy title</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam, cupiditate.
+              </p>
+            </div>
+            <img
+              decoding="async"
+              loading="lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACAD"
+              width="400"
+            />
+          </div>
+          <div class="slide">
+            <div>
+              <h3>Some Fancy title</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam, cupiditate.
+              </p>
+            </div>
+            <img
+              decoding="async"
+              loading="lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACAD"
+              width="400"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Dupatta -->
+      <section>
+        <h2>Dupatta</h2>
+        <div data-dupatta class="grid-three-columns skeleton">
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Saree -->
+      <section>
+        <h2>Saree</h2>
+        <div data-saree class="grid-three-columns skeleton">
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dress -->
+      <section>
+        <h2>Dress</h2>
+        <div data-dress class="grid-three-columns skeleton">
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Material -->
+      <section>
+        <h2>Top Material</h2>
+        <div data-top-material class="grid-three-columns skeleton">
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+          <div class="product">
+            <img height="400" width="400" decoding="async" loading="lazy" />
+            <strong></strong>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="grid-three-columns">
+        <div>
+          <strong>Catalogue</strong>
+          <ul>
+            <li>Top Material</li>
+            <li>Dress</li>
+            <li>Saree</li>
+            <li>Dupatta</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Socials</strong>
+          <ul>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>WhatsApp</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Newsletter</strong>
+          <div class="newsletter-input">
+            <input type="text" placeholder="E-Mail" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <p>All Rights Reserved &copy;Ratan Bandhej.2025</p>
+    </footer>
+  </body>
+</html>

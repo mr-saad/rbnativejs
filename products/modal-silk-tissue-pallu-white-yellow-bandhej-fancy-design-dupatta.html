@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta | Ratan Bandhej</title>
+    <link rel="preconnect" href="https://zmj6x1jl.api.sanity.io" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      :root {
+        --nav-bg: rgb(18 18 18 / 0.5);
+      }
+      html {
+        color-scheme: light dark;
+      }
+
+      /* layout================= */
+      nav {
+        background: var(--nav-bg);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 5rem;
+        border-bottom: 1px solid #333;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        z-index: 2;
+
+        .menu {
+          display: none;
+          width: 1.8rem;
+          height: 1rem;
+          flex-direction: column;
+          justify-content: space-between;
+          span {
+            height: 1px;
+            background: #fff;
+          }
+        }
+
+        > strong {
+          color: #fff;
+          font-size: 1.9rem;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+          list-style: none;
+
+          li {
+            color: #fff;
+            padding: 0.5rem;
+            a {
+              color: currentColor;
+              display: inline-block;
+              text-decoration: none;
+            }
+          }
+        }
+        .cart-link {
+          color: #fff;
+          text-decoration: none;
+          justify-self: end;
+          position: relative;
+
+          svg {
+            vertical-align: middle;
+          }
+
+          span {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 1000px;
+            background: #fff;
+            color: #222;
+            text-align: center;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      main {
+        min-height: 90vh;
+        margin-bottom: 3rem;
+      }
+      .grid-three-columns {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+      footer {
+        color: #fff;
+        padding: 2rem 5rem;
+        background: #121212;
+        border-top: 1px solid #222;
+
+        ul {
+          list-style: none;
+        }
+
+        .newsletter-input {
+          margin-top: 0.5rem;
+          width: fit-content;
+          background: #fff;
+          padding-block: 0.2rem;
+          padding-inline: 0.5rem;
+          padding-inline-end: 0.2rem;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+
+          input {
+            outline: none;
+            background: transparent;
+            border: none;
+            color: #000;
+          }
+          button {
+            border: none;
+            background: #121212;
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid;
+            padding-block: 0.3rem;
+            padding-inline: 0.5rem;
+            border-radius: 0.3rem;
+            -webkit-border-radius: 0.3rem;
+            -moz-border-radius: 0.3rem;
+            -ms-border-radius: 0.3rem;
+            -o-border-radius: 0.3rem;
+          }
+        }
+
+        > p {
+          margin-top: 2rem;
+        }
+      }
+
+      section:is(.prodContainer) {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 2rem;
+        max-width: 1024px;
+        margin-inline: auto;
+        margin-top: 4.7rem;
+        padding: 1rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          aspect-ratio: 1;
+          object-fit: cover;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+        }
+        .details {
+          strong {
+            font-size: 1.5rem;
+          }
+          table {
+            width: 100%;
+
+            td,
+            th {
+              padding-block: 0.5rem;
+            }
+            th {
+              text-align: left;
+              vertical-align: top;
+              padding-right: 1rem;
+            }
+          }
+          p {
+            margin-block: 1rem;
+          }
+          button {
+            padding: 0.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .grid-three-columns {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem;
+          gap: 1rem;
+          grid-template-columns: auto 1fr auto;
+
+          .menu {
+            display: flex;
+          }
+          > strong {
+            justify-self: center;
+          }
+
+          ul {
+            grid-row-start: 2;
+            grid-column: 1 / -1;
+            flex-direction: column;
+            display: none;
+            &.open {
+              display: flex;
+            }
+
+            li {
+              padding-inline: unset;
+
+              a {
+                display: block;
+              }
+            }
+          }
+        }
+        section:is(.prodContainer) {
+          grid-template-columns: auto;
+          gap: 1rem;
+        }
+        footer {
+          padding: 1rem;
+        }
+        .grid-three-columns {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+    </style>
+    <script defer src="../scripts/slug.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menu"><span></span><span></span><span></span></div>
+      <strong><a href="../index.html">Ratan Bandhej</a></strong>
+      <ul>
+        <li>Dark</li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+      <a class="cart-link" href="../cart.html">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="#888"
+          stroke="#888"
+        >
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path
+            d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+          ></path>
+        </svg>
+        <span data-cart-count></span>
+      </a>
+    </nav>
+    <main>
+      <section class="prodContainer">
+        <img src="https://cdn.sanity.io/images/zmj6x1jl/production/a72106923e38c5bc93de2948e63fab033d591f60-854x1280.jpg" alt="Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta" width="400" height="400" />
+        <div class="details">
+          <strong>Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta</strong>
+          <table>
+            <tbody>
+              <tr>
+                <th>Length</th>
+                <td> 2.5 meters</td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <p>Colours can be customised.</p>
+          <button style="display: none" data-add-to-cart data-prod-id="efdc4109-5747-43de-8a73-b63172fdfc76">
+            Add to Cart
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="grid-three-columns">
+        <div>
+          <strong>Catalogue</strong>
+          <ul>
+            <li>Top Material</li>
+            <li>Dress</li>
+            <li>Saree</li>
+            <li>Dupatta</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Socials</strong>
+          <ul>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>WhatsApp</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Newsletter</strong>
+          <div class="newsletter-input">
+            <input type="text" placeholder="E-Mail" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <p>All Rights Reserved &copy;Ratan Bandhej.2025</p>
+    </footer>
+
+    <script>
+      const menuBtn = document.querySelector(".menu")
+      const ul = document.querySelector("nav ul")
+      menuBtn.addEventListener("click", () => ul.classList.toggle("open"))
+    </script>
+  </body>
+</html>
