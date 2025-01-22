@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart | Ratan Bandhej</title>
+    <link rel="preconnect" href="https://cdn.sanity.io" />
   </head>
   <style>
     * {
@@ -16,10 +17,19 @@
     }
 
     :root {
-      --nav-bg: rgb(18 18 18 / 0.5);
+      --nav-bg: rgb(18 18 18 / 0.7);
     }
     html {
       color-scheme: light dark;
+      color: #888;
+    }
+
+    /* utils ============ */
+    .highlight {
+      color: #121212;
+      @media (prefers-color-scheme: dark) {
+        color: #fff;
+      }
     }
 
     /* layout================= */
@@ -85,6 +95,7 @@
         }
 
         span {
+          display: none;
           position: absolute;
           top: -0.5rem;
           right: -0.5rem;
@@ -109,14 +120,23 @@
       margin-top: 4.7rem;
 
       h2 {
-        margin-bottom: 1rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
       }
     }
     footer {
-      color: #fff;
+      color: #888;
       padding: 2rem 5rem;
       background: #121212;
       border-top: 1px solid #222;
+
+      > p {
+        margin-bottom: 1rem;
+      }
+
+      strong {
+        color: #fff;
+      }
 
       ul {
         list-style: none;
@@ -157,7 +177,7 @@
         }
       }
 
-      > p {
+      .rights {
         margin-top: 2rem;
       }
     }
@@ -244,16 +264,17 @@
       }
     }
   </style>
+  <script async src="scripts/cart.js"></script>
   <body>
     <nav>
       <div class="menu"><span></span><span></span><span></span></div>
       <strong><a href="index.html">Ratan Bandhej</a></strong>
       <ul>
         <li>Dark</li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sign_up.html">Sign Up</a></li>
       </ul>
       <a class="cart-link" href="cart.html">
         <svg
@@ -278,12 +299,13 @@
     </nav>
     <main>
       <section>
-        <h2>Cart</h2>
+        <h2 class="highlight">Cart</h2>
         <div class="grid-three-columns"></div>
       </section>
     </main>
 
     <footer>
+      <p>Follow us on social media platforms in order to stay updated</p>
       <div class="grid-three-columns">
         <div>
           <strong>Catalogue</strong>
@@ -310,36 +332,7 @@
           </div>
         </div>
       </div>
-      <p>All Rights Reserved &copy;Ratan Bandhej.2025</p>
+      <p class="rights">All Rights Reserved &copy;Ratan Bandhej.2025</p>
     </footer>
-
-    <script>
-      const menuBtn = document.querySelector(".menu"),
-        ul = document.querySelector("nav ul"),
-        cartCount = document.querySelector("[data-cart-count]"),
-        grid = document.querySelector(".grid-three-columns")
-
-      menuBtn.addEventListener("click", () => ul.classList.toggle("open"))
-
-      let cart = (JSON.parse(localStorage.getItem("ratanCart")) || []).filter(
-        (prod) => prod && typeof prod === "object",
-      )
-      cartCount.innerText = cart.length || ""
-
-      let cartHTML = ""
-      for (const prod of cart) {
-        cartHTML += `
-          <a href="products/${prod.slug}.html" class="product">
-              <img
-                width="400"
-                src=${prod.image.url}
-                alt=${prod.title}
-              />
-              <strong>${prod.title}</strong>
-          </a>
-        `
-      }
-      grid.innerHTML = cartHTML
-    </script>
   </body>
 </html>

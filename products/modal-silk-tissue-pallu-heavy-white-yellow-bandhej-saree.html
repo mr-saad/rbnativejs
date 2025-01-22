@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modal Silk Tissue Pallu Heavy White Yellow Bandhej Saree | Ratan Bandhej</title>
     <link rel="preconnect" href="https://zmj6x1jl.api.sanity.io" />
+    <link rel="preconnect" href="https://cdn.sanity.io" />
     <style>
       * {
         margin: 0;
@@ -16,10 +17,22 @@
       }
 
       :root {
-        --nav-bg: rgb(18 18 18 / 0.5);
+        --nav-bg: rgb(18 18 18 / 0.7);
       }
       html {
         color-scheme: light dark;
+        color: #666;
+        @media (prefers-color-scheme: dark) {
+          color: #888;
+        }
+      }
+
+      /* utils ============ */
+      .highlight {
+        color: #121212;
+        @media (prefers-color-scheme: dark) {
+          color: #fff;
+        }
       }
 
       /* layout================= */
@@ -85,6 +98,7 @@
           }
 
           span {
+            display: none;
             position: absolute;
             top: -0.5rem;
             right: -0.5rem;
@@ -109,10 +123,18 @@
         gap: 2rem;
       }
       footer {
-        color: #fff;
+        color: #888;
         padding: 2rem 5rem;
         background: #121212;
         border-top: 1px solid #222;
+
+        > p {
+          margin-bottom: 1rem;
+        }
+
+        strong {
+          color: #fff;
+        }
 
         ul {
           list-style: none;
@@ -153,22 +175,23 @@
           }
         }
 
-        > p {
+        .rights {
           margin-top: 2rem;
         }
       }
 
       section:is(.prodContainer) {
         display: grid;
-        grid-template-columns: auto auto;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        justify-content: center;
         max-width: 1024px;
         margin-inline: auto;
         margin-top: 4.7rem;
         padding: 1rem;
 
         img {
-          width: 100%;
+          max-width: 100%;
           height: 100%;
           aspect-ratio: 1;
           object-fit: cover;
@@ -199,8 +222,16 @@
             margin-block: 1rem;
           }
           button {
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
             cursor: pointer;
+            color: #fff;
+            background: #121212;
+            border: none;
+            border-radius: 0.2rem;
+            @media (prefers-color-scheme: dark) {
+              color: #121212;
+              background: #fff;
+            }
           }
         }
       }
@@ -253,7 +284,7 @@
         }
       }
     </style>
-    <script defer src="../scripts/slug.js"></script>
+    <script async src="../scripts/slug.js"></script>
   </head>
   <body>
     <nav>
@@ -261,10 +292,10 @@
       <strong><a href="../index.html">Ratan Bandhej</a></strong>
       <ul>
         <li>Dark</li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="../products.html">Products</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../sign_up.html">Sign Up</a></li>
       </ul>
       <a class="cart-link" href="../cart.html">
         <svg
@@ -291,24 +322,27 @@
       <section class="prodContainer">
         <img src="https://cdn.sanity.io/images/zmj6x1jl/production/b263bb156c90d165fa1533e297b3fe85cb3e1353-960x1280.jpg" alt="Modal Silk Tissue Pallu Heavy White Yellow Bandhej Saree" width="400" height="400" />
         <div class="details">
-          <strong>Modal Silk Tissue Pallu Heavy White Yellow Bandhej Saree</strong>
+          <strong class="highlight">Modal Silk Tissue Pallu Heavy White Yellow Bandhej Saree</strong>
           <table>
             <tbody>
               <tr>
-                <th>Length</th>
-                <td> 6.5 meters with bandhej blouse piece</td>
-              </tr>
+                  <th class="highlight">Length</th>
+                  <td> 6.5 meters with bandhej blouse piece</td>
+                </tr>
               
+              <tr>
+                <th class="highlight">Price</th>
+                <td>₹2300</td>
+              </tr>
             </tbody>
           </table>
           <p>Colours can be customised.</p>
-          <button style="display: none" data-add-to-cart data-prod-id="af0b8df4-0481-49ef-9acb-8e3a1e0af69c">
-            Add to Cart
-          </button>
+          <button data-add-to-cart data-prod-id="af0b8df4-0481-49ef-9acb-8e3a1e0af69c">Add to Cart</button>
         </div>
       </section>
     </main>
     <footer>
+      <p>Follow us on social media platforms in order to stay updated</p>
       <div class="grid-three-columns">
         <div>
           <strong>Catalogue</strong>
@@ -335,9 +369,12 @@
           </div>
         </div>
       </div>
-      <p>All Rights Reserved &copy;Ratan Bandhej.2025</p>
+      <p class="rights">All Rights Reserved &copy;Ratan Bandhej.2025</p>
     </footer>
-
+    <input type="hidden" class="_id" value="af0b8df4-0481-49ef-9acb-8e3a1e0af69c" />
+    <input type="hidden" class="title" value="Modal Silk Tissue Pallu Heavy White Yellow Bandhej Saree" />
+    <input type="hidden" class="slug" value="modal-silk-tissue-pallu-heavy-white-yellow-bandhej-saree" />
+    <input type="hidden" class="image" value="https://cdn.sanity.io/images/zmj6x1jl/production/b263bb156c90d165fa1533e297b3fe85cb3e1353-960x1280.jpg" />
     <script>
       const menuBtn = document.querySelector(".menu")
       const ul = document.querySelector("nav ul")

@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta | Ratan Bandhej</title>
-    <link rel="preconnect" href="https://zmj6x1jl.api.sanity.io" />
-    <link rel="preconnect" href="https://cdn.sanity.io" />
+    <title>About | Ratan Bandhej</title>
     <style>
       * {
         margin: 0;
@@ -14,6 +12,15 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
       }
 
       :root {
@@ -75,6 +82,7 @@
         ul {
           display: flex;
           justify-content: center;
+          flex-wrap: wrap;
           list-style: none;
 
           li {
@@ -117,15 +125,26 @@
         min-height: 90vh;
         margin-bottom: 3rem;
       }
-      .grid-three-columns {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 2rem;
+      section {
+        max-width: 120ch;
+        padding: 2rem 5rem;
+        margin-top: 4.7rem;
+        > h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+        p {
+          margin-bottom: 1rem;
+          strong {
+            font-size: 2rem;
+          }
+        }
       }
+
       footer {
-        color: #888;
         padding: 2rem 5rem;
         background: #121212;
+        color: #888;
         border-top: 1px solid #222;
 
         > p {
@@ -133,6 +152,8 @@
         }
 
         strong {
+          display: block;
+          margin-bottom: 0.5rem;
           color: #fff;
         }
 
@@ -180,62 +201,11 @@
         }
       }
 
-      section:is(.prodContainer) {
+      .grid-three-columns {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        justify-content: center;
-        max-width: 1024px;
-        margin-inline: auto;
-        margin-top: 4.7rem;
-        padding: 1rem;
-
-        img {
-          max-width: 100%;
-          height: 100%;
-          aspect-ratio: 1;
-          object-fit: cover;
-          border-radius: 0.5rem;
-          -webkit-border-radius: 0.5rem;
-          -moz-border-radius: 0.5rem;
-          -ms-border-radius: 0.5rem;
-          -o-border-radius: 0.5rem;
-        }
-        .details {
-          strong {
-            font-size: 1.5rem;
-          }
-          table {
-            width: 100%;
-
-            td,
-            th {
-              padding-block: 0.5rem;
-            }
-            th {
-              text-align: left;
-              vertical-align: top;
-              padding-right: 1rem;
-            }
-          }
-          p {
-            margin-block: 1rem;
-          }
-          button {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            color: #fff;
-            background: #121212;
-            border: none;
-            border-radius: 0.2rem;
-            @media (prefers-color-scheme: dark) {
-              color: #121212;
-              background: #fff;
-            }
-          }
-        }
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
       }
-
       @media (max-width: 1024px) {
         .grid-three-columns {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -272,10 +242,11 @@
             }
           }
         }
-        section:is(.prodContainer) {
-          grid-template-columns: auto;
-          gap: 1rem;
+
+        section {
+          padding: 1rem;
         }
+
         footer {
           padding: 1rem;
         }
@@ -284,21 +255,20 @@
         }
       }
     </style>
-    <script async src="../scripts/slug.js"></script>
   </head>
   <body>
     <nav>
       <div class="menu"><span></span><span></span><span></span></div>
-      <strong><a href="../index.html">Ratan Bandhej</a></strong>
+      <strong><a href="index.html">Ratan Bandhej</a></strong>
       <ul>
         <li>Dark</li>
-        <li><a href="../products.html">Products</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-        <li><a href="../sign_up.html">Sign Up</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sign_up.html">Sign Up</a></li>
       </ul>
-      <a class="cart-link" href="../cart.html">
-        <svg
+      <a class="cart-link" href="cart.html"
+        ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -319,26 +289,53 @@
       </a>
     </nav>
     <main>
-      <section class="prodContainer">
-        <img src="https://cdn.sanity.io/images/zmj6x1jl/production/a72106923e38c5bc93de2948e63fab033d591f60-854x1280.jpg" alt="Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta" width="400" height="400" />
-        <div class="details">
-          <strong class="highlight">Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta</strong>
-          <table>
-            <tbody>
-              <tr>
-                  <th class="highlight">Length</th>
-                  <td> 2.5 meters</td>
-                </tr>
-              
-              <tr>
-                <th class="highlight">Price</th>
-                <td>₹1100</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>Colours can be customised.</p>
-          <button data-add-to-cart data-prod-id="efdc4109-5747-43de-8a73-b63172fdfc76">Add to Cart</button>
-        </div>
+      <section>
+        <h2 class="highlight">About</h2>
+        <p>
+          At Ratan Bandhej, we celebrate the vibrant heritage and artistry of
+          traditional Indian textiles. We are passionate about preserving and
+          promoting the rich cultural legacy of Bandhani, a centuries-old
+          tie-dye technique originating from the colorful state of Gujarat,
+          India.
+        </p>
+
+        <p>
+          Bandhani is known for its distinctive patterns created through the
+          laborious process of tying and dyeing. Our skilled artisans
+          meticulously tie thousands of tiny knots by hand, forming intricate
+          designs on the fabric. These knots resist the dye, resulting in
+          beautiful patterns when the fabric is dyed. It is a testament to the
+          artisans' craftsmanship and attention to detail.
+        </p>
+
+        <p>
+          We work closely with talented artisans from different regions of
+          Gujarat, ensuring that their skills are recognized and valued. By
+          supporting fair trade practices, we strive to empower these artisans,
+          providing them with a sustainable livelihood while preserving their
+          traditional craft. Each Bandhani product you find on our website is a
+          labor of love and a testament to the artisans' dedication.
+        </p>
+
+        <p>
+          We invite you to explore our collection and discover the intricate
+          beauty of Bandhani. Whether you are attending a special occasion,
+          looking for a statement piece, or simply embracing the elegance of
+          Indian textiles, Bandhani offers you an exquisite range of products to
+          choose from.
+        </p>
+
+        <p>
+          Thank you for joining us on this journey of celebrating art, culture,
+          and craftsmanship. We hope you enjoy exploring the vibrant world of
+          Bandhani and find something that resonates with your style and
+          passion.
+        </p>
+
+        <p>
+          Warm regards,
+          <strong class="highlight">Ratan Bandhej</strong>
+        </p>
       </section>
     </main>
     <footer>
@@ -371,14 +368,26 @@
       </div>
       <p class="rights">All Rights Reserved &copy;Ratan Bandhej.2025</p>
     </footer>
-    <input type="hidden" class="_id" value="efdc4109-5747-43de-8a73-b63172fdfc76" />
-    <input type="hidden" class="title" value="Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta" />
-    <input type="hidden" class="slug" value="modal-silk-tissue-pallu-white-yellow-bandhej-fancy-design-dupatta" />
-    <input type="hidden" class="image" value="https://cdn.sanity.io/images/zmj6x1jl/production/a72106923e38c5bc93de2948e63fab033d591f60-854x1280.jpg" />
+
     <script>
-      const menuBtn = document.querySelector(".menu")
-      const ul = document.querySelector("nav ul")
+      // menu
+      const menuBtn = document.querySelector(".menu"),
+        nav = document.querySelector("nav"),
+        ul = document.querySelector("nav ul"),
+        cartCount = document.querySelector("[data-cart-count]")
+
+      let cart = (JSON.parse(localStorage.getItem("ratanCart")) || []).filter(
+        (prod) => prod && typeof prod === "object",
+      )
+      cartCount.style.display = cart.length ? "inline" : "none"
+      cartCount.innerText = cart.length || 0
+
       menuBtn.addEventListener("click", () => ul.classList.toggle("open"))
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) {
+          ul.classList.remove("open")
+        }
+      })
     </script>
   </body>
 </html>

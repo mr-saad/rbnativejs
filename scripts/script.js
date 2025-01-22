@@ -1,8 +1,5 @@
 // By Saad Khatri (SXVD)
 
-const queryUrl =
-  "https://zmj6x1jl.api.sanity.io/v2022-03-07/data/query/production"
-
 // menu
 const menuBtn = document.querySelector(".menu"),
   nav = document.querySelector("nav"),
@@ -12,6 +9,7 @@ const menuBtn = document.querySelector(".menu"),
 let cart = (JSON.parse(localStorage.getItem("ratanCart")) || []).filter(
   (prod) => prod && typeof prod === "object",
 )
+cartCount.style.display = cart.length ? "inline" : "none"
 cartCount.innerText = cart.length || ""
 
 menuBtn.addEventListener("click", () => ul.classList.toggle("open"))
@@ -30,55 +28,26 @@ const headerImage = document.querySelector("[data-header-image]"),
   saree = document.querySelector("[data-saree]"),
   topMaterial = document.querySelector("[data-top-material]")
 
-const query = async (q = "", params = {}) => {
-  let p = ""
-  if (params) {
-    for (const key in params) {
-      p += `&$${key}="${params[key]}"`
-    }
-  }
-  try {
-    const res = await (
-      await fetch(queryUrl + `?query=${encodeURIComponent(q)}${p}`)
-    ).json()
-    return res.result
-  } catch (error) {
-    alert(error.message)
-    console.error(error)
-    throw error
-  }
-}
-
-window.onload = async () => {
-  // queries
-  const headerQ = `*[_type=="headerImage"][0]{image{asset->{url}}}`
-  const headerRes = query(headerQ)
-  const carouselQ = `*[_type=="product"]|order(_createdAt desc){_id,title,type,"slug":slug.current,description,specs,"image":images[0].asset->{url}}`
-  const carouselRes = query(carouselQ)
-
-  // resolving all parallelly
-  const [img, carouselProds] = await Promise.all([headerRes, carouselRes])
-
-  // setting ui =============
+window.addEventListener("sanityReady", () => {
   // header Image
   headerImage.classList.remove("skeleton")
-  headerImage.src = img.image.asset.url
+  headerImage.src = window._headerImg.image
 
   // carousel
   let carouselHTML = ""
-  for (const prod of carouselProds.slice(0, 4)) {
+  for (const prod of window._prods.slice(0, 4)) {
     carouselHTML += `
       <div class="slide">
             <div>
-              <h3 style="font-size:1.5rem">${prod.title}</h3>
+              <h3 class="highlight" style="font-size:1.5rem">${prod.title}</h3>
               <p>
                 ${prod.description}
               </p>
-              <a href="/products/${prod.slug}.html">More</a>
+              <a href="products/${prod.slug}.html">More</a>
             </div>
             <img
               width="400"
-              src=${prod.image.url}
+              src=${prod.image}
               alt="Nature"
             />
       </div>`
@@ -88,14 +57,14 @@ window.onload = async () => {
 
   // dupatta
   let dupattaHTML = ""
-  for (const prod of carouselProds
+  for (const prod of window._prods
     .filter((prod) => prod.type === "Dupatta")
     .slice(0, 3)) {
     dupattaHTML += `
         <a href="products/${prod.slug}.html" class="product">
               <img
                 width="400"
-                src=${prod.image.url}
+                src=${prod.image}
                 alt=${prod.title}
               />
               <strong>${prod.title}</strong>
@@ -106,14 +75,14 @@ window.onload = async () => {
 
   // dress
   let dressHTML = ""
-  for (const prod of carouselProds
+  for (const prod of window._prods
     .filter((prod) => prod.type === "Dress")
     .slice(0, 3)) {
     dressHTML += `
         <a href="products/${prod.slug}.html" class="product">
               <img
                 width="400"
-                src=${prod.image.url}
+                src=${prod.image}
                 alt=${prod.title}
               />
               <strong>${prod.title}</strong>
@@ -124,14 +93,14 @@ window.onload = async () => {
 
   // saree
   let sareeHTML = ""
-  for (const prod of carouselProds
+  for (const prod of window._prods
     .filter((prod) => prod.type === "Saree")
     .slice(0, 3)) {
     sareeHTML += `
         <a href="products/${prod.slug}.html" class="product">
               <img
                 width="400"
-                src=${prod.image.url}
+                src=${prod.image}
                 alt=${prod.title}
               />
               <strong>${prod.title}</strong>
@@ -142,14 +111,14 @@ window.onload = async () => {
 
   // topMaterial
   let topMaterialHTML = ""
-  for (const prod of carouselProds
+  for (const prod of window._prods
     .filter((prod) => prod.type === "Top Material")
     .slice(0, 3)) {
     topMaterialHTML += `
         <a href="products/${prod.slug}.html" class="product">
               <img
                 width="400"
-                src=${prod.image.url}
+                src=${prod.image}
                 alt=${prod.title}
               />
               <strong>${prod.title}</strong>
@@ -157,4 +126,4 @@ window.onload = async () => {
   }
   topMaterial.classList.remove("skeleton")
   topMaterial.innerHTML = topMaterialHTML
-}
+})

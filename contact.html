@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta | Ratan Bandhej</title>
-    <link rel="preconnect" href="https://zmj6x1jl.api.sanity.io" />
-    <link rel="preconnect" href="https://cdn.sanity.io" />
+    <title>Ratan Bandhej</title>
     <style>
       * {
         margin: 0;
@@ -14,6 +12,15 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
       }
 
       :root {
@@ -75,6 +82,7 @@
         ul {
           display: flex;
           justify-content: center;
+          flex-wrap: wrap;
           list-style: none;
 
           li {
@@ -117,15 +125,28 @@
         min-height: 90vh;
         margin-bottom: 3rem;
       }
+      section {
+        max-width: 120ch;
+        padding: 2rem 5rem;
+        margin-top: 4.7rem;
+        > h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
       .grid-three-columns {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 2rem;
       }
       footer {
-        color: #888;
         padding: 2rem 5rem;
         background: #121212;
+        color: #888;
         border-top: 1px solid #222;
 
         > p {
@@ -133,6 +154,8 @@
         }
 
         strong {
+          display: block;
+          margin-bottom: 0.5rem;
           color: #fff;
         }
 
@@ -180,62 +203,6 @@
         }
       }
 
-      section:is(.prodContainer) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        justify-content: center;
-        max-width: 1024px;
-        margin-inline: auto;
-        margin-top: 4.7rem;
-        padding: 1rem;
-
-        img {
-          max-width: 100%;
-          height: 100%;
-          aspect-ratio: 1;
-          object-fit: cover;
-          border-radius: 0.5rem;
-          -webkit-border-radius: 0.5rem;
-          -moz-border-radius: 0.5rem;
-          -ms-border-radius: 0.5rem;
-          -o-border-radius: 0.5rem;
-        }
-        .details {
-          strong {
-            font-size: 1.5rem;
-          }
-          table {
-            width: 100%;
-
-            td,
-            th {
-              padding-block: 0.5rem;
-            }
-            th {
-              text-align: left;
-              vertical-align: top;
-              padding-right: 1rem;
-            }
-          }
-          p {
-            margin-block: 1rem;
-          }
-          button {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            color: #fff;
-            background: #121212;
-            border: none;
-            border-radius: 0.2rem;
-            @media (prefers-color-scheme: dark) {
-              color: #121212;
-              background: #fff;
-            }
-          }
-        }
-      }
-
       @media (max-width: 1024px) {
         .grid-three-columns {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -272,10 +239,11 @@
             }
           }
         }
-        section:is(.prodContainer) {
-          grid-template-columns: auto;
-          gap: 1rem;
+
+        section {
+          padding: 1rem;
         }
+
         footer {
           padding: 1rem;
         }
@@ -284,21 +252,20 @@
         }
       }
     </style>
-    <script async src="../scripts/slug.js"></script>
   </head>
   <body>
     <nav>
       <div class="menu"><span></span><span></span><span></span></div>
-      <strong><a href="../index.html">Ratan Bandhej</a></strong>
+      <strong class="highlight"><a href="index.html">Ratan Bandhej</a></strong>
       <ul>
         <li>Dark</li>
-        <li><a href="../products.html">Products</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-        <li><a href="../sign_up.html">Sign Up</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sign_up.html">Sign Up</a></li>
       </ul>
-      <a class="cart-link" href="../cart.html">
-        <svg
+      <a class="cart-link" href="cart.html"
+        ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -319,26 +286,45 @@
       </a>
     </nav>
     <main>
-      <section class="prodContainer">
-        <img src="https://cdn.sanity.io/images/zmj6x1jl/production/a72106923e38c5bc93de2948e63fab033d591f60-854x1280.jpg" alt="Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta" width="400" height="400" />
-        <div class="details">
-          <strong class="highlight">Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta</strong>
-          <table>
-            <tbody>
-              <tr>
-                  <th class="highlight">Length</th>
-                  <td> 2.5 meters</td>
-                </tr>
-              
-              <tr>
-                <th class="highlight">Price</th>
-                <td>₹1100</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>Colours can be customised.</p>
-          <button data-add-to-cart data-prod-id="efdc4109-5747-43de-8a73-b63172fdfc76">Add to Cart</button>
-        </div>
+      <section>
+        <h2 class="highlight">Contact</h2>
+        <p>
+          Thank you for your interest in Ratan Bandhej. We are delighted to
+          assist you with any inquiries, feedback, or assistance you may
+          require. Here are the details to get in touch with us:
+        </p>
+
+        <p>
+          E-Mail: <strong class="highlight">ratanbandhejbhuj@gmail.com</strong>
+          <br />
+          Phone: <strong class="highlight">+91 9228405162</strong>
+        </p>
+
+        <p>
+          We value your feedback and strive to provide prompt responses to all
+          your queries. Whether you have questions about our Bandhani products,
+          need assistance with an order, or simply want to share your thoughts,
+          we are here to help.
+        </p>
+
+        <p>
+          You can reach us via email at
+          <strong class="highlight">ratanbandhejbhuj@gmail.com</strong>. Please
+          allow up to 24 hours for us to respond to your email, although we
+          endeavor to reply as soon as possible.
+        </p>
+
+        <p>
+          If you prefer to speak with us directly, you can contact us by phone
+          at <strong class="highlight">+91 9228405162</strong>. Our customer
+          support team is available during business hours to assist you with
+          your queries and provide any necessary guidance.
+        </p>
+
+        <p>
+          Thank you for choosing Ratan Bandhej. We look forward to hearing from
+          you and providing you with an exceptional shopping experience.
+        </p>
       </section>
     </main>
     <footer>
@@ -371,14 +357,25 @@
       </div>
       <p class="rights">All Rights Reserved &copy;Ratan Bandhej.2025</p>
     </footer>
-    <input type="hidden" class="_id" value="efdc4109-5747-43de-8a73-b63172fdfc76" />
-    <input type="hidden" class="title" value="Modal Silk Tissue Pallu White Yellow Bandhej Fancy Design Dupatta" />
-    <input type="hidden" class="slug" value="modal-silk-tissue-pallu-white-yellow-bandhej-fancy-design-dupatta" />
-    <input type="hidden" class="image" value="https://cdn.sanity.io/images/zmj6x1jl/production/a72106923e38c5bc93de2948e63fab033d591f60-854x1280.jpg" />
     <script>
-      const menuBtn = document.querySelector(".menu")
-      const ul = document.querySelector("nav ul")
+      // menu
+      const menuBtn = document.querySelector(".menu"),
+        nav = document.querySelector("nav"),
+        ul = document.querySelector("nav ul"),
+        cartCount = document.querySelector("[data-cart-count]")
+
+      let cart = (JSON.parse(localStorage.getItem("ratanCart")) || []).filter(
+        (prod) => prod && typeof prod === "object",
+      )
+      cartCount.style.display = cart.length ? "inline" : "none"
+      cartCount.innerText = cart.length || 0
+
       menuBtn.addEventListener("click", () => ul.classList.toggle("open"))
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) {
+          ul.classList.remove("open")
+        }
+      })
     </script>
   </body>
 </html>
